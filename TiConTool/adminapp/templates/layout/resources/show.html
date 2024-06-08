@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ user.name|capfirst }} {{ user.last_name|capfirst }} Home</title>
+    <link rel="stylesheet" href="{% static 'css/show.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+<body>
+  <h1 class="white-source text-center my-5 text-capitalize">Ver información de {{ user.name|capfirst }}</h1>
+
+  <div class="container">
+      <div class="row">
+          <div class="col-lg-6 col-sm-6 mx-5">
+            <table class="table">
+              <tbody class="text-center">
+                <tr>
+                  <th scope="col" class="fw-bold" style="background-color: #286BEA; color: white;">#</th>
+                  <td scope="row" class="fw-bold">{{ user.id }}</td>
+                </tr>
+                <tr>
+                  <th scope="col" class="fw-bold text-capitalize" style="background-color: #286BEA; color: white;">Nombre Completo</th>
+                  <td scope="row">{{ user.name|capfirst }} {{ user.last_name|capfirst }}</td>
+                </tr>
+                <tr>
+                  <th scope="col" class="fw-bold text-capitalize" style="background-color: #286BEA; color: white;">Tipo Documento</th>
+                  <td scope="row">{{ user.type_document.name }}</td>
+                </tr>
+                <tr>
+                  <th scope="col" class="fw-bold text-capitalize" style="background-color: #286BEA; color: white;">Número</th>
+                  <td scope="row">{{ user.identifier }}</td>
+                </tr>
+                <tr>
+                  <th scope="col" class="fw-bold text-capitalize" style="background-color: #286BEA; color: white;">email</th>
+                  <td scope="row">{{ user.email }}</td>
+                </tr>
+                <tr>
+                  <th scope="col" class="fw-bold text-capitalize" style="background-color: #286BEA; color: white;">usuario</th>
+                  <td scope="row">{{ user.username }}</td>
+                </tr>
+                <tr>
+                  <th scope="col" class="fw-bold text-capitalize" style="background-color: #286BEA; color: white;">Rol</th>
+                  <td scope="row">{{ user.role.name }}</td>
+                </tr>
+                <tr>
+                  <th scope="col" class="fw-bold text-capitalize" style="background-color: #286BEA; color: white;">Genero</th>
+                  <td scope="row">{{ user.genre.name }}</td>
+                </tr>
+                <tr>
+                  <th scope="col" class="fw-bold text-capitalize" style="background-color: #286BEA; color: white;">Estado</th>
+                  {% if user.is_active == True %}
+                    <td scope="row" style="color: blue; {% if user.is_active == True %} {% else %} color: red; {% endif %}">Activo</td>
+                  {% else %}
+                    <td scope="row" style="color: blue; {% if user.is_active == True %} {% else %} color: red; {% endif %}">Inactivo</td>
+                  {% endif %}
+                </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="col-lg-4 col-sm-4">
+          <img class="img-responsive" style="border-radius: 65px !important;" src="https://cdn.pixabay.com/photo/2016/03/31/19/56/avatar-1295397__340.png" alt="{{ user.name }}" height="365">
+        </div>
+      </div>
+
+    <div class="text-center my-5">
+      <a class="btn btn-primary" href="javascript: history.go(-1)">Volver</a>
+    </div>
+  </div>
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+</body>
+</html>

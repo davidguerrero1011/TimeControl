@@ -1,0 +1,15 @@
+body {
+    background: linear-gradient(to bottom, #1883C4, #DBC9F5);
+    margin: 0;
+    padding: 0;
+}
+
+.white-source {
+    color: #ffffff;
+}
+
+.center-title {
+    margin-left: 40%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
